@@ -1,0 +1,61 @@
+<div id="type_project">
+	<%if @type_project == nil%>
+		<%@works.each do |work|%>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 fix filter">
+				<div class="box-project">
+					<%= link_to app_projectdetails_path(work.id) ,  class: "open-box"  do %>
+					<%= image_tag work.image , class: 'img-responsive' %>
+						<div class="mask-project">
+							<div class="logo-project">
+				          		<%= image_tag work.logo , class: 'img-responsive' %>
+							</div>
+				    	    <span class="title-project">
+				        		<%= work.title %>
+				        	</span> 
+				   		</div>
+					<%end%>
+				</div>
+			</div>
+		<%end%>
+	<%else%>
+
+		<%if type_project.id == 1%>
+			<%@works.each do |work|%>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 fix filter">
+					<div class="box-project">
+						<%= link_to app_projectdetails_path(work.id) ,  class: "open-box"  do %>
+						<%= image_tag work.image, class: 'img-responsive' %>
+							<div class="mask-project">
+								<div class="logo-project">
+					          		<%= image_tag work.logo , class: 'img-responsive' %>
+								</div>
+					    	    <span class="title-project">
+					        		<%= work.title %>
+					        	</span>
+
+					   		</div>
+						<%end%>
+					</div>
+				</div>
+			<%end%>
+		<%else%>
+			<%type_project.works.each do |work|%>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 fix filter">
+				  <div class="box-project">
+				    <%= link_to app_projectdetails_path(work.id) ,  class: "open-box"  do %>
+				      <%= image_tag work.image, class: 'img-responsive' %>
+				      <div class="mask-project">
+				        <div class="logo-project">
+		                   <%= image_tag work.logo , class: 'img-responsive' %>
+				        </div>
+				        <span class="title-project">
+				          <%= work.title %>
+				        </span>
+				      </div>
+				    <% end %>
+				  </div>
+				</div>
+			<%end%>
+		<%end%>
+	<%end%>
+</div>
